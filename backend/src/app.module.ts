@@ -6,6 +6,7 @@ import configuration from "./config/configuration";
 import { PersistenceModule } from "./infrastructure/persistence.module";
 
 import { ClientModule } from "./application/client/client.module";
+import { HotelModule } from "./application/hotel/hotel.module";
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ClientModule } from "./application/client/client.module";
     }),
     PersistenceModule,
     ClientModule,
+    HotelModule,
   ],
 })
 export class AppModule {}
