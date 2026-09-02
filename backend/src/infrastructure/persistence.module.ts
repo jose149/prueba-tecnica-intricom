@@ -1,4 +1,4 @@
-import { Injectable, Module, OnModuleInit } from "@nestjs/common";
+import { Global, Injectable, Module, OnModuleInit } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 
 import { FileSystemService } from "./filesystem/filesystem.service";
@@ -20,6 +20,7 @@ export class PersistenceInitializer implements OnModuleInit {
   }
 }
 
+@Global()
 @Module({
   providers: [
     FileSystemService,
