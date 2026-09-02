@@ -7,6 +7,7 @@ import { PersistenceModule } from "./infrastructure/persistence.module";
 
 import { ClientModule } from "./application/client/client.module";
 import { HotelModule } from "./application/hotel/hotel.module";
+import { HotelBookingModule } from "./application/hotel-booking/hotel-booking.module";
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { HotelModule } from "./application/hotel/hotel.module";
     PersistenceModule,
     ClientModule,
     HotelModule,
+    HotelBookingModule,
   ],
 })
 export class AppModule {}
