@@ -13,6 +13,7 @@ import { UpdateClientDto } from "./dto/update-client.dto";
 import { CreateClientUseCase } from "./create-client.use-case";
 import { ListClientUseCase } from "./list-client.use-case";
 import { UpdateClientUseCase } from "./update-client.use-case";
+import { Client } from "../../domain/client/client";
 
 @Controller("clients")
 export class ClientController {
@@ -23,17 +24,20 @@ export class ClientController {
   ) {}
 
   @Get()
-  findAll() {
+  findAll(): Promise<Client[]> {
     return this.listClients.execute();
   }
 
   @Post()
-  create(@Body() dto: CreateClientDto) {
+  create(@Body() dto: CreateClientDto): Promise<Client> {
     return this.createClient.execute(dto);
   }
 
   @Patch(":id")
-  update(@Param("id", ParseIntPipe) id: number, @Body() dto: UpdateClientDto) {
+  update(
+    @Param("id", ParseIntPipe) id: number,
+    @Body() dto: UpdateClientDto,
+  ): Promise<Client> {
     return this.updateClient.execute(id, dto);
   }
 }
