@@ -5,6 +5,8 @@ import Joi from "joi";
 import configuration from "./config/configuration";
 import { PersistenceModule } from "./infrastructure/persistence.module";
 
+import { ClientModule } from "./application/client/client.module";
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -20,6 +22,7 @@ import { PersistenceModule } from "./infrastructure/persistence.module";
       }),
     }),
     PersistenceModule,
+    ClientModule,
   ],
 })
 export class AppModule {}
