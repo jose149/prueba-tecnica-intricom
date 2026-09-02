@@ -3,6 +3,7 @@ import { ConfigModule } from "@nestjs/config";
 import Joi from "joi";
 
 import configuration from "./config/configuration";
+import { PersistenceModule } from "./infrastructure/persistence.module";
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import configuration from "./config/configuration";
         }),
       }),
     }),
+    PersistenceModule,
   ],
 })
 export class AppModule {}
